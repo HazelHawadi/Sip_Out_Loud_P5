@@ -15,6 +15,7 @@
     {% endblock %}
 
     {% block corecss %}
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -45,53 +46,81 @@
 
     <title>Sip Out Loud {% block extra_title %}{% endblock %} </title>
   </head>
-  <body class="bg-dark text-white">
+  
+  <body>
     <header class="container-fluid fixed-top">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="{% url 'home' %}">
-                <h2 class="logo-font text-light"><strong>Sip</strong> Out Loud</h2>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'view_bag' %}">
-                            <i class="fas fa-shopping-bag"></i> Bag
+        <div class="row">
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 text-center text-lg-left">
+                <a href="{% url 'home' %}" class="nav-link main-logo-link">
+                    <h2 class="logo-font text-black my-0">Sip Out Loud</h2>
+                </a>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0 search-bar">
+                <form method="GET" action="">
+                    <div class="input-group w-100">
+                        <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search here">
+                        <div class="input-group-append">
+                            <button class="form-control btn border border-black rounded-0" type="submit">
+                                <span class="icon">
+                                    <i class="fas fa-search"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <li class="list-inline-item dropdown">
+                        <a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
                         </a>
+                        <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item">Product Management</a>
+                                {% endif %}
+                                <a href="" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                            {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
+                            {% endif %}
+                        </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">
-                            <i class="fas fa-user"></i> Account
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link" href="">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                        €{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        €0.00
+                                    {% endif %}
+                                </p>
+                            </div>
                         </a>
                     </li>
                 </ul>
             </div>
-        </nav>
+        </div>
     </header>
 
-    <main class="mt-5 pt-5">
-        {% block content %}{% endblock %}
-    </main>
+    {% if messages %}
+        <div class="message-container"></div>
+    {% endif %}
 
-    <footer class="bg-dark text-white py-4 mt-5">
-        <div class="container text-center">
-            <p>&copy; 2025 Sip Out Loud. All Rights Reserved.</p>
-            <p>Made with ❤️ by your favorite team.</p>
-        </div>
-    </footer>
+    {% block page_header %}
+    {% endblock %}
 
-    {% block extra_js %}{% endblock %}
-</body>
+    {% block content %}
+    {% endblock %}
 
+    {% block postloadjs %}
+    {% endblock %}
+  </body>
 </html>
