@@ -99,6 +99,8 @@ footer {
     width: 100%;
 }
 
+/* index.html styling */
+
 /* Hero Section */
 .hero {
     background: url('/media/hero-bg.jpg') center/cover no-repeat;
@@ -128,10 +130,15 @@ footer {
 
 /* Features Section */
 .features {
+    color: #fff;
     display: flex;
     justify-content: space-around;
     padding: 50px 20px;
     text-align: center;
+}
+
+.features {
+    
 }
 
 .feature img {
@@ -173,3 +180,8 @@ footer {
     margin: 10px auto;
     width: 50%;
 }
+
+.testimonials p, span{
+    color: #fff;
+}
+
