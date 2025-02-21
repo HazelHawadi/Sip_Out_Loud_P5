@@ -1,85 +1,100 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
-{% block content %}
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to <span class="highlight">Sip Out Loud</span></h1>
-      <p>Your one-stop shop for premium drinks.</p>
-      <a href="/products/" class="btn btn-primary">Explore Our Collection</a>
-    </div>
-  </section>
 
-  <!-- categories -->
-  <section class="categories">
-    <h2>Browse by Category</h2>
-    <div class="category-container">
-      <div class="category">
-        <img src="{% static 'images/whiskey-collection.jpg' %}" alt="Whiskey Collection">
-        <h3>Whiskey</h3>
-        <p>Experience the finest selection of aged whiskey.</p>
-        <a href="{% url 'whiskey' %}" class="btn btn-secondary">See Collection</a>
-      </div>
-      <div class="category">
-        <img src="{% static 'images/gin-collection.jpg' %}" alt="Gin Collection">
-        <h3>Gin</h3>
-        <p>Explore our range of botanically infused gins.</p>
-        <a href="{% url 'gin' %}" class="btn btn-secondary">See Collection</a>
-      </div>
-      <div class="category">
-        <img src="{% static 'images/vodka-collection.jpg' %}" alt="Vodka Collection">
-        <h3>Vodka</h3>
-        <p>Discover smooth and refined premium vodkas.</p>
-        <a href="{% url 'vodka' %}" class="btn btn-secondary">See Collection</a>
-      </div>
-      <div class="category">
-        <img src="{% static 'images/Wine-collection.jpg' %}" alt="Wine Collection">
-        <h3>Wine</h3>
-        <p>Enjoy a curated selection of world-class wines.</p>
-        <a href="{% url 'wine' %}" class="btn btn-secondary">See Collection</a>
-      </div>
-    </div>
-  </section>
+<!-- Hero Section -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Welcome to <span class="highlight">Sip Out Loud</span></h1>
+    <p>Your one-stop shop for premium drinks.</p>
+    <a href="/products/" class="btn btn-primary">Explore Our Collection</a>
+  </div>
+</section>
 
-  <!-- Features Section -->
-  <section class="features">
-    <div class="feature">
-      <img src="{{ MEDIA_URL }}quality.jpg" alt="Quality Selection">
-      <h2>Quality Selection</h2>
-      <p>We offer a wide variety of top-shelf wines, whiskeys, gins, and more.</p>
-    </div>
-    <div class="feature">
-      <img src="{{ MEDIA_URL }}secure-payment.jpg" alt="Safe Payment">
-      <h2>Safe & Secure Payment</h2>
-      <p>Shop with confidence using our secure payment options.</p>
-    </div>
-    <div class="feature">
-      <img src="{{ MEDIA_URL }}fast-delivery.png" alt="Fast Delivery">
-      <h2>Fast Delivery</h2>
-      <p>Enjoy fast delivery to your doorsteps in no time.</p>
-    </div>
-  </section>
+<!-- About Us Section -->
+<section class="about">
+  <div class="about-content">
+    <h2>About <span class="highlight">Sip Out Loud</span></h2>
+    <p>
+      At Sip Out Loud, we are passionate about bringing you the finest beverages
+      from around the world. Whether you're a wine enthusiast, a whiskey
+      connoisseur, or just looking for something special, we have something for
+      everyone.
+    </p>
+  </div>
+</section>
 
-  <!-- About Us Section -->
-  <section class="about">
-    <div class="about-content">
-      <h2>About <span class="highlight">Sip Out Loud</span></h2>
-      <p>At Sip Out Loud, we are passionate about bringing you the finest beverages from around the world. Whether you're a wine enthusiast, a whiskey connoisseur, or just looking for something special, we have something for everyone.</p>
-      <a href="/about/" class="btn btn-secondary">Learn More</a>
+<!-- categories -->
+<section class="categories">
+  <h2>Browse by Category</h2>
+  <div class="category-container">
+    <div class="category">
+      <img
+        src="{% static 'images/whiskey-collection.jpg' %}"
+        alt="Whiskey Collection"
+      />
+      <h3>Whiskey</h3>
+      <p>Experience the finest selection of aged whiskey.</p>
+      <a href="{% url 'whiskey' %}" class="btn btn-secondary">See Collection</a>
     </div>
-  </section>
+    <div class="category">
+      <img
+        src="{% static 'images/gin-collection.jpg' %}"
+        alt="Gin Collection"
+      />
+      <h3>Gin</h3>
+      <p>Explore our range of botanically infused gins.</p>
+      <a href="{% url 'gin' %}" class="btn btn-secondary">See Collection</a>
+    </div>
+    <div class="category">
+      <img
+        src="{% static 'images/vodka-collection.jpg' %}"
+        alt="Vodka Collection"
+      />
+      <h3>Vodka</h3>
+      <p>Discover smooth and refined premium vodkas.</p>
+      <a href="{% url 'vodka' %}" class="btn btn-secondary">See Collection</a>
+    </div>
+    <div class="category">
+      <img
+        src="{% static 'images/Wine-collection.jpg' %}"
+        alt="Wine Collection"
+      />
+      <h3>Wine</h3>
+      <p>Enjoy a curated selection of world-class wines.</p>
+      <a href="{% url 'wine' %}" class="btn btn-secondary">See Collection</a>
+    </div>
+  </div>
+</section>
 
-  <!-- Testimonials Section -->
-  <section class="testimonials">
-    <h2>What Our Customers Say</h2>
-    <div class="testimonial">
-      <p>"Fantastic selection and super-fast delivery! Highly recommend."</p>
-      <span>- Emily R.</span>
-    </div>
-    <div class="testimonial">
-      <p>"Love the quality and variety. Great customer service as well!"</p>
-      <span>- James K.</span>
-    </div>
-  </section>
+<!-- Features Section -->
+<section class="features">
+  <div class="feature">
+    <img src="{% static 'images/quality.png' %}" alt="Quality Selection" />
+    <h2>Quality Selection</h2>
+    <p>We offer a wide variety of top-shelf wines, whiskeys, gins, and more.</p>
+  </div>
+  <div class="feature">
+    <img src="{% static 'images/secure-payment.png' %}" alt="Secure Payment" />
+    <h2>Safe & Secure Payment</h2>
+    <p>Shop with confidence using our secure payment options.</p>
+  </div>
+  <div class="feature">
+    <img src="{% static 'images/fast-delivery.png' %}" alt="Fast Delivery" />
+    <h2>Fast Delivery</h2>
+    <p>Enjoy fast delivery to your doorsteps in no time.</p>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <h2>What Our Customers Say</h2>
+  <div class="testimonial">
+    <p>"Fantastic selection and super-fast delivery! Highly recommend."</p>
+    <span>- Emily R.</span>
+  </div>
+  <div class="testimonial">
+    <p>"Love the quality and variety. Great customer service as well!"</p>
+    <span>- James K.</span>
+  </div>
+</section>
 {% endblock %}
