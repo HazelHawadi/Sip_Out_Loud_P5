@@ -73,6 +73,25 @@ header {
     box-shadow: none;
 }
 
+.navbar-nav .nav-item {
+    margin-right: 10px;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0;
+}
+
+/* Button styling for My Account */
+.navbar-nav .btn {
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.bg-black {
+    background-color: #000 !important;
+}
+
 /* Search Bar */
 .form-control {
     background: #222;
@@ -111,6 +130,7 @@ h1, h2, h3 {
 
 /* Hero Section */
 .hero {
+    margin-top: 150px;
     position: relative;
     height: 75vh;
     overflow: hidden;

@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white">
+    <div class="container">
+        <!-- Navbar Toggler -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Collapsible Navbar -->
+        <div class="collapse navbar-collapse" id="main-nav">
+            <ul class="navbar-nav mx-auto">
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All Products</a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="{% url 'products' %}">View All</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=price">Sort by Price</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating">Sort by Rating</a></li>
+                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=category">Sort by Category</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="{% url 'clothing' %}" class="nav-link">Clothing</a></li>
+                <li class="nav-item"><a href="{% url 'homeware' %}" class="nav-link">Homeware</a></li>
+                <li class="nav-item"><a href="{% url 'special_offers' %}" class="nav-link">Special Offers</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

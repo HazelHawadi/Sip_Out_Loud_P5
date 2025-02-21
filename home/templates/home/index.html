@@ -1,6 +1,7 @@
-{% extends "base.html" %} {% load static %} {% block content %}
+{% extends "base.html" %} 
+{% load static %} 
 
-
+{% block content %}
 <!-- Hero Section -->
 <section class="hero">
   <div class="hero-slider-wrapper">
@@ -30,42 +31,30 @@
   </div>
 </section>
 
-<!-- categories -->
+<!-- Categories Section -->
 <section class="categories">
   <h2>Browse by Category</h2>
   <div class="category-container">
     <div class="category">
-      <img
-        src="{% static 'images/whiskey-collection.jpg' %}"
-        alt="Whiskey Collection"
-      />
+      <img src="{% static 'images/whiskey-collection.jpg' %}" alt="Whiskey Collection" />
       <h3>Whiskey</h3>
       <p>Experience the finest selection of aged whiskey.</p>
       <a href="{% url 'whiskey' %}" class="btn btn-secondary">See Collection</a>
     </div>
     <div class="category">
-      <img
-        src="{% static 'images/gin-collection.jpg' %}"
-        alt="Gin Collection"
-      />
+      <img src="{% static 'images/gin-collection.jpg' %}" alt="Gin Collection" />
       <h3>Gin</h3>
       <p>Explore our range of botanically infused gins.</p>
       <a href="{% url 'gin' %}" class="btn btn-secondary">See Collection</a>
     </div>
     <div class="category">
-      <img
-        src="{% static 'images/vodka-collection.jpg' %}"
-        alt="Vodka Collection"
-      />
+      <img src="{% static 'images/vodka-collection.jpg' %}" alt="Vodka Collection" />
       <h3>Vodka</h3>
       <p>Discover smooth and refined premium vodkas.</p>
       <a href="{% url 'vodka' %}" class="btn btn-secondary">See Collection</a>
     </div>
     <div class="category">
-      <img
-        src="{% static 'images/Wine-collection.jpg' %}"
-        alt="Wine Collection"
-      />
+      <img src="{% static 'images/wine-collection.jpg' %}" alt="Wine Collection" />
       <h3>Wine</h3>
       <p>Enjoy a curated selection of world-class wines.</p>
       <a href="{% url 'wine' %}" class="btn btn-secondary">See Collection</a>

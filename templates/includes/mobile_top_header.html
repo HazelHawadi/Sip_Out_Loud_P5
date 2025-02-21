@@ -1,0 +1,22 @@
+<div class="d-lg-none bg-light py-2">
+    <div class="container d-flex justify-content-between align-items-center">
+        <!-- Search button -->
+        <button class="btn btn-light d-block d-lg-none" data-bs-toggle="dropdown">
+            <i class="fas fa-search"></i>
+        </button>
+        <div class="dropdown">
+            <!-- My Account Dropdown -->
+            <button class="btn btn-light dropdown-toggle d-block d-lg-none" data-bs-toggle="dropdown">
+                My Account
+            </button>
+            <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{% url 'login' %}">Login</a></li>
+                <li><a class="dropdown-item" href="{% url 'register' %}">Register</a></li>
+            </ul>
+        </div>
+        <!-- Shopping bag button -->
+        <a href="{% url 'shopping_cart' %}" class="btn btn-light d-block d-lg-none">
+            <i class="fas fa-shopping-bag"></i>
+        </a>
+    </div>
+</div>
