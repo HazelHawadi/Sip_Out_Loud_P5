@@ -88,8 +88,10 @@ header {
     font-weight: bold;
 }
 
-.bg-black {
-    background-color: #000 !important;
+.shipping {
+    font-size: x-large;
+    color: #b90e0e;
+    background-color: #fff !important;
 }
 
 /* Search Bar */

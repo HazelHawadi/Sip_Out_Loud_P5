@@ -1,26 +1,72 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
-    <div class="container">
-        <!-- Navbar Toggler -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+<!-- Navbar Content -->
+<div class="collapse navbar-collapse" id="main-nav">
+    <ul class="navbar-nav w-auto mx-auto">
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                All Collections
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <a href="{% url 'products' %}?sort=price" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating" class="dropdown-item">By Rating</a>
+                <a href="{% url 'products' %}?sort=category" class="dropdown-item">By Category</a>
+                <a href="{% url 'products' %}" class="dropdown-item">View All</a>
+            </div>
+        </li>
 
-        <!-- Collapsible Navbar -->
-        <div class="collapse navbar-collapse" id="main-nav">
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">All Products</a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="{% url 'products' %}">View All</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=price">Sort by Price</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=rating">Sort by Rating</a></li>
-                        <li><a class="dropdown-item" href="{% url 'products' %}?sort=category">Sort by Category</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item"><a href="{% url 'clothing' %}" class="nav-link">Clothing</a></li>
-                <li class="nav-item"><a href="{% url 'homeware' %}" class="nav-link">Homeware</a></li>
-                <li class="nav-item"><a href="{% url 'special_offers' %}" class="nav-link">Special Offers</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="gin-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Gin
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="gin-link">
+                <a href="{% url 'gin' %}?type=classic" class="dropdown-item">Classic Gin</a>
+                <a href="{% url 'gin' %}?type=flavored" class="dropdown-item">Flavored Gin</a>
+                <a href="{% url 'gin' %}" class="dropdown-item">All Gin</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="vodka-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Vodka
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="vodka-link">
+                <a href="{% url 'vodka' %}?type=classic" class="dropdown-item">Classic Vodka</a>
+                <a href="{% url 'vodka' %}?type=flavored" class="dropdown-item">Flavored Vodka</a>
+                <a href="{% url 'vodka' %}" class="dropdown-item">All Vodka</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="whiskey-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Whiskey
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="whiskey-link">
+                <a href="{% url 'whiskey' %}?type=scotch" class="dropdown-item">Scotch Whiskey</a>
+                <a href="{% url 'whiskey' %}?type=bourbon" class="dropdown-item">Bourbon</a>
+                <a href="{% url 'whiskey' %}" class="dropdown-item">All Whiskey</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black mr-5" href="#" id="wine-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Wine
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="wine-link">
+                <a href="{% url 'wine' %}?type=red" class="dropdown-item">Red Wine</a>
+                <a href="{% url 'wine' %}?type=white" class="dropdown-item">White Wine</a>
+                <a href="{% url 'wine' %}" class="dropdown-item">All Wine</a>
+            </div>
+        </li>
+
+        <li class="nav-item dropdown">
+            <a class="logo-font font-weight-bold nav-link text-black" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Special Offers
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="specials-link">
+                {#<a href="{% url 'special_offers' %}?type=new" class="dropdown-item">New Arrivals</a>#}
+                {#<a href="{% url 'special_offers' %}?type=deals" class="dropdown-item">Deals</a>#}
+                {#<a href="{% url 'special_offers' %}?type=clearance" class="dropdown-item">Clearance</a>#}
+                {#<a href="{% url 'special_offers' %}" class="dropdown-item">All Specials</a>#}
+            </div>
+        </li>
+    </ul>
+</div>
