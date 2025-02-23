@@ -6,4 +6,23 @@
     <h1>Gin Collection</h1>
     <img src="{% static 'images/gin-banner.jpg' %}" alt="Gin" class="category-banner">
 </div>
+
+<div class="products-container">
+    {% for product in products %}
+    <div class="product-card">
+        <img src="{{ product.image.url }}" alt="{{ product.name }}">
+
+        <div class="product-details">
+            <h2 class="product-title">{{ product.name }}</h2>
+            <p class="product-info"><strong>Alcohol:</strong> {{ product.alcohol_percentage }}% ABV</p>
+            <p class="product-info"><strong>Volume:</strong> {{ product.volume_ml }}ml</p>
+            <p class="product-description">{{ product.description }}</p>
+            <p class="product-rating"><strong>Rating:</strong> ⭐{{ product.rating|default:"N/A" }}</p>
+            <p class="product-price"><strong>Price:</strong> €{{ product.price }}</p>
+        </div>
+    </div>
+    {% empty %}
+    <p class="no-products">No products available.</p>
+    {% endfor %}
+</div>
 {% endblock %}

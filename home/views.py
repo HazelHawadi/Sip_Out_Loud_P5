@@ -35,3 +35,6 @@ def vodka(request):
 
 def wine(request):
     return render(request, 'categories/wine.html')
+
+def profile(request):
+    return render(request, 'accounts/profile.html')

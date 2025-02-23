@@ -27,7 +27,6 @@ class Product(models.Model):
     volume_ml = models.PositiveIntegerField(null=True, blank=True, help_text="Volume in milliliters (ml)")
     price = models.DecimalField(max_digits=7, decimal_places=2)  # Supports higher prices
     rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(upload_to='product_images/', null=True, blank=True)
 
     def __str__(self):
