@@ -1,8 +1,28 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block content %}
 <div class="container">
+
+    <div class="category-container">
+        <h1>{{ category|title }} Collection</h1>
+        <img src="{% static 'images/'|add:category|add:'-banner.jpg' %}" alt="{{ category }}" class="category-banner">
+    </div>
+    
     <h1 class="text-center">{{ category }}</h1>
+    
+    <div class="sorting mb-3">
+        <label for="sort">Sort by:</label>
+        <select id="sort" class="form-control" onchange="location = this.value;">
+            <option value="?sort=name&direction=asc" {% if current_sorting == "name_asc" %}selected{% endif %}>Name (A-Z)</option>
+            <option value="?sort=name&direction=desc" {% if current_sorting == "name_desc" %}selected{% endif %}>Name (Z-A)</option>
+            <option value="?sort=price&direction=asc" {% if current_sorting == "price_asc" %}selected{% endif %}>Price (Low to High)</option>
+            <option value="?sort=price&direction=desc" {% if current_sorting == "price_desc" %}selected{% endif %}>Price (High to Low)</option>
+            <option value="?sort=rating&direction=asc" {% if current_sorting == "rating_asc" %}selected{% endif %}>Rating (Low to High)</option>
+            <option value="?sort=rating&direction=desc" {% if current_sorting == "rating_desc" %}selected{% endif %}>Rating (High to Low)</option>
+        </select>
+    </div>
+
     <div class="row">
         {% for product in products %}
             <div class="col-md-4">

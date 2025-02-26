@@ -7,6 +7,22 @@
     <img src="{% static 'images/wine-banner.jpg' %}" alt="Wine" class="category-banner">
 </div>
 
+<div class="filter-bar">
+    <form method="GET" action="{% if category %}{% url 'product_list' category=category %}{% else %}{% url 'product_list' %}{% endif %}">
+        <div class="filter-item">
+            <label for="filters">Filters:</label>
+            <select name="filters" id="filters">
+                <option value="">Select Filter</option>
+                <option value="price_low_to_high">Price: Low to High</option>
+                <option value="price_high_to_low">Price: High to Low</option>
+                <option value="alcohol_abv">Alcohol ABV</option>
+                <option value="rating">Rating: High to Low</option>
+            </select>
+        </div>
+        <button type="submit">Apply Filter</button>
+    </form>
+</div>
+
 <div class="products-container">
     {% for product in products %}
     <div class="product-card">

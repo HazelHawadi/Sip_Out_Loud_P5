@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h1 class="text-center mt-4">Our Collection</h1>
+
+    <!-- Sorting Dropdown -->
+    <div class="d-flex justify-content-end mb-3">
+        <form method="GET" id="sorting-form">
+            <label for="sort" class="me-2">Sort by:</label>
+            <select name="sort" id="sort" class="form-select d-inline w-auto">
+                <option value="name_asc" {% if current_sorting == "name_asc" %}selected{% endif %}>Name (A-Z)</option>
+                <option value="name_desc" {% if current_sorting == "name_desc" %}selected{% endif %}>Name (Z-A)</option>
+                <option value="price_asc" {% if current_sorting == "price_asc" %}selected{% endif %}>Price (Low to High)</option>
+                <option value="price_desc" {% if current_sorting == "price_desc" %}selected{% endif %}>Price (High to Low)</option>
+                <option value="rating_asc" {% if current_sorting == "rating_asc" %}selected{% endif %}>Rating (Low to High)</option>
+                <option value="rating_desc" {% if current_sorting == "rating_desc" %}selected{% endif %}>Rating (High to Low)</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Product Grid -->
+    <div class="row">
+        {% for product in products %}
+            <div class="col-md-4 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ product.name }}</h5>
+                        <p class="card-text">{{ product.description|truncatechars:100 }}</p>
+                        <p class="card-text"><strong>€{{ product.price }}</strong></p>
+                        <p class="card-text">Alcohol: {{ product.alcohol_percentage }}%</p>
+                        <p class="card-text">Volume: {{ product.volume_ml }}ml</p>
+                        <p class="card-text">Rating: ⭐ {{ product.rating }}/5</p>
+                    </div>
+                </div>
+            </div>
+        {% empty %}
+            <p class="text-center">No products available at the moment.</p>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- JavaScript for Sorting -->
+<script>
+    document.getElementById("sort").addEventListener("change", function() {
+        document.getElementById("sorting-form").submit();
+    });
+</script>
+
+{% endblock %}
