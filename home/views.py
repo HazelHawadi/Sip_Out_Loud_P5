@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
+from products.models import Product
+from django.db.models import Sum
 
 
 def index(request):
@@ -24,6 +26,19 @@ def register(request):
 
     return render(request, 'registration/register.html', {'form': form})
 
+def dashboard(request):
+    products = Product.objects.all()[:5]
+
+    # Get product count and total sales (summed up)
+    product_count = Product.objects.count()
+    total_sales = Product.objects.aggregate(Sum('price'))['price__sum'] or 0  # Sum the price field
+
+    return render(request, 'home/dashboard.html', {
+        'products': products,
+        'product_count': product_count,
+        'total_sales': total_sales,
+    })
+
 def whiskey(request):
     return render(request, 'categories/whiskey.html')
 
@@ -38,3 +53,4 @@ def wine(request):
 
 def profile(request):
     return render(request, 'accounts/profile.html')
+

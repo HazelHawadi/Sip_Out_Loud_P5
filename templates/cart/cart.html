@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center">Your Cart</h1>
+
+    {% if cart_items %}
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in cart_items %}
+                    <tr>
+                        <td>
+                            <img src="{{ item.product.image.url }}" alt="{{ item.name }}" class="img-fluid" style="max-width: 80px;">
+                        </td>
+                        <td>{{ item.name }}</td>
+                        <td>
+                            <form action="{% url 'update_cart' item.product.id %}" method="POST">
+                                {% csrf_token %}
+                                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" class="form-control" style="width: 60px; display: inline-block;">
+                                <button type="submit" class="btn btn-sm btn-gold">Update</button>
+                            </form>
+                        </td>
+                        <td>€{{ item.price }}</td>
+                        <td>€{{ item.total }}</td>
+                        <td>
+                            <a href="{% url 'remove_from_cart' item.product.id %}" class="btn btn-danger btn-sm">Remove</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <div class="text-end">
+            <h4>Total: €{{ total_price }}</h4>
+            <a href="{% url 'checkout' %}" class="btn btn-success btn-lg">Proceed to Checkout</a>
+        </div>
+
+    {% else %}
+        <p class="text-center">Your cart is empty.</p>
+        <div class="text-center">
+            <a href="{% url 'product_list' %}" class="btn btn-gold">Continue Shopping</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -553,6 +553,37 @@ h1, h2, h3 {
     color: #888;
 }
 
+/* Add to Cart Buttons */
+.btn-gold {
+    display: inline-block !important;
+    visibility: visible !important; 
+    opacity: 1 !important;
+}
+
+button.btn-gold {
+    position: relative; 
+    z-index: 10; 
+    margin-top: 10px; 
+}
+
+.btn-gold:hover {
+    background-color: #d4b478; /* Lighter gold on hover */
+    border-color: #d4b478;
+    color: #000;
+}
+
+.btn-gold:active {
+    background-color: #8c7240; /* Darker gold on click */
+    border-color: #8c7240;
+}
+
+.btn-gold:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
 
 /* Footer Styling */
 .footer {
