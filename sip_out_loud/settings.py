@@ -30,7 +30,7 @@ SECRET_KEY = 'django-insecure-d+2ti91)4=g$f*8x5tv7ph+ckuh)z1ivpo^h$eyk)*6+__4fx8
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    'sip-out-loud-p5-9f4dd0f9646d.herokuapp.com/', #heroku application
+    'sip-out-loud-p5-9f4dd0f9646d.herokuapp.com', #heroku application
 ]
 
 
