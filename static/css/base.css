@@ -780,6 +780,44 @@ h2.logo-font {
     border-bottom-color: #e0a800;
 }
 
+/* General form field styling */
+form {
+    margin-top: 50px;
+}
+
+.container h2 {
+    color: #fff;
+}
+
+.container {
+    padding-top: 90px; 
+}
+
+form input, form textarea, form select {
+    background-color: #fff !important; 
+    color: #333 !important;    
+    border: 1px solid #ccc !important;
+    padding: 10px;
+}
+
+/* Placeholder styling */
+form input::placeholder, form textarea::placeholder {
+    color: #aaa;  
+}
+
+/* Focused state */
+form input:focus, form textarea:focus, form select:focus {
+    background-color: #f0f0f0;  
+    border-color: #007BFF;     
+    outline: none;          
+}
+
+/* Active state */
+form input:active, form textarea:active, form select:active {
+    background-color: #f0f0f0;
+}
+
+
 
 /* Footer Styling */
 .footer {
