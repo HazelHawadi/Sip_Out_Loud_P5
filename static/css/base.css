@@ -706,6 +706,81 @@ h2.logo-font {
     font-size: 1.2rem;
 }
 
+/* Custom Toast */
+.custom-toast {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    min-width: 300px;
+    max-width: 400px;
+    font-size: 14px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.toast-header {
+    font-weight: bold;
+    color: #fff;
+}
+
+.toast-body {
+    font-size: 14px;
+    padding: 10px 15px;
+}
+
+/* Toast Types */
+.toast-success {
+    background-color: #28a745;
+    border-left: 5px solid #218838;
+    color: white;
+}
+
+.toast-error {
+    background-color: #dc3545;
+    border-left: 5px solid #c82333;
+    color: white;
+}
+
+.toast-info {
+    background-color: #17a2b8;
+    border-left: 5px solid #138496;
+    color: white;
+}
+
+.toast-warning {
+    background-color: #ffc107;
+    border-left: 5px solid #e0a800;
+    color: black;
+}
+
+/* Arrow styling */
+.arrow-up {
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid;
+}
+
+.arrow-success {
+    border-bottom-color: #218838;
+}
+
+.arrow-error {
+    border-bottom-color: #c82333;
+}
+
+.arrow-info {
+    border-bottom-color: #138496;
+}
+
+.arrow-warning {
+    border-bottom-color: #e0a800;
+}
+
+
 /* Footer Styling */
 .footer {
     background-color: #000;

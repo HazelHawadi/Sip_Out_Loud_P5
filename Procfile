@@ -1,0 +1,1 @@
+web: gunicorn sip_out_loud.wsgi:application
