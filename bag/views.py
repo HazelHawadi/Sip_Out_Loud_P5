@@ -18,4 +18,7 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    return redirect('view_bag')   
+    return redirect('view_bag')
+
+def checkout_view(request):
+    return render(request, 'bag/checkout.html')

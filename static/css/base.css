@@ -19,6 +19,7 @@ body {
     background-position: center bottom; /* Move image closer to the bottom */
     background-size: cover; /* Ensures full width and height */
     min-height: 100vh;
+    padding-top: 70px;
     width: 100vw; /* Forces full width */
     display: flex;
     flex-direction: column;
@@ -586,6 +587,124 @@ h1, h2, h3 {
 }
 
 
+/* Style for the bag container */
+/* Container Styling */
+.container {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Shopping Bag Header */
+h2.logo-font {
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+    font-style: italic;
+}
+
+/* Table Styling */
+.table {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.table thead {
+    background-color: #003366;
+    color: white;
+}
+
+.table th, .table td {
+    vertical-align: middle;
+}
+
+.table td img {
+    max-width: 80px;
+    border-radius: 8px;
+}
+
+/* Quantity Input Styling */
+.input-group {
+    max-width: 120px;
+}
+
+.qty_input {
+    text-align: center;
+    width: 50px;
+    border: 1px solid #003366;
+}
+
+.increment-qty, .decrement-qty {
+    background-color: #003366;
+    color: white;
+    border: none;
+    width: 30px;
+}
+
+.increment-qty:hover, .decrement-qty:hover {
+    background-color: #0055a5;
+}
+
+/* Buttons */
+.btn-black {
+    background-color: #003366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-black:hover {
+    background-color: #0055a5;
+    color: white;
+}
+
+.btn-outline-black {
+    border: 2px solid #003366;
+    color: #003366;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.btn-outline-black:hover {
+    background-color: #003366;
+    color: white;
+}
+
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
+
+/* Checkout Section */
+.text-right h6, .text-right h4 {
+    font-weight: bold;
+}
+
+/* Back to Top Button */
+.btt-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #003366;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.btt-button:hover {
+    background: #0055a5;
+}
+
+.btt-button i {
+    font-size: 1.2rem;
+}
 
 /* Footer Styling */
 .footer {
@@ -663,19 +782,63 @@ h1, h2, h3 {
     .product-card {
         max-width: 90%;
     }
+
+    .container {
+        padding-top: 50px; 
+    }
+    
+    .logo-font {
+        margin-top: 50px;
+    }
 }
 
+/* Extra small devices */
+@media (max-width: 576px) {
+    .table thead {
+        display: none;
+    }
 
+    .table tbody tr {
+        display: flex;
+        flex-direction: column;
+        background: white;
+        padding: 15px;
+        margin-bottom: 10px;
+        border-radius: 10px;
+    }
 
-/* Responsive Design */
+    .table td {
+        display: flex;
+        justify-content: space-between;
+        font-size: 14px;
+        border: none;
+    }
 
-@media screen and (min-width: 768px){
-    .category-banner {
-        max-height: 1300px; /* Controlled height */
-        }
+    .table td img {
+        max-width: 100px;
+        margin: auto;
+    }
 
-    .category-banner h1
-    
+    .qty_input {
+        width: 35px;
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 5px 8px;
+    }
+
+    .text-right {
+        text-align: center !important;
+    }
+
+    .btt-button {
+        bottom: 15px;
+        right: 15px;
+        width: 35px;
+        height: 35px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -707,6 +870,10 @@ h1, h2, h3 {
         width: 90%;
     }
 
+    .category-banner {
+        max-height: 1300px; /* Controlled height */
+    }
+
     .features {
     display: flex;
     justify-content: center;
@@ -716,6 +883,88 @@ h1, h2, h3 {
     background: #111;
     margin-top: 50px;  /* Add margin to create space from the categories section */
 }
+
+ .container {
+        padding: 0 15px;
+    }
+
+    h2.logo-font {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .table td img {
+        max-width: 60px;
+    }
+
+    .qty_input {
+        width: 40px;
+        font-size: 12px;
+    }
+
+    .increment-qty, .decrement-qty {
+        width: 25px;
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .btt-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btt-button i {
+        font-size: 1rem;
+    }
+
+    .container {
+        padding: 0 15px;
+    }
+
+    h2.logo-font {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    .table td img {
+        max-width: 60px;
+    }
+
+    .qty_input {
+        width: 40px;
+        font-size: 12px;
+    }
+
+    .increment-qty, .decrement-qty {
+        width: 25px;
+        font-size: 12px;
+    }
+
+    .btn {
+        font-size: 13px;
+        padding: 6px 10px;
+    }
+
+    .btt-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .btt-button i {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 992px) {
@@ -726,6 +975,28 @@ h1, h2, h3 {
 
     .category img {
         height: 100%;  /* Image height fits the container without cropping */
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+    }
+
+    .table th, .table td {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .input-group {
+        max-width: 100px;
+    }
+
+    .btn {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    h2.logo-font {
+        font-size: 1.8rem;
     }
     
 }
