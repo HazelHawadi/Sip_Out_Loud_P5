@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-d+2ti91)4=g$f*8x5tv7ph+ckuh)z1ivpo^h$eyk)*6+__4fx8
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    '127.0.0.1', 'localhost',
     'sip-out-loud-p5-9f4dd0f9646d.herokuapp.com', #heroku application
 ]
 
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'home',
     'products',
     'bag',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -168,6 +170,24 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if 'USE_AWS' in os.environ:
+    # Bucket Config
+    AWS_STORAGE_BUCKET_NAME = 'spi-city-bucket'
+    AWS_S3_REGION_NAME = 'Europe (Stockholm) eu-north-1'
+    AWS_ACCESS_KEY_ID = os.environ.get('AKIAYSE4NYIUZYXMWTWG')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('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')
+    AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+
+    # Static and media files
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATICFILES_LOCATION = 'static'
+    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+    MEDIAFILES_LOCATION = 'media'
+
+     # Override static and media URLs in production
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 LOGOUT_REDIRECT_URL = "/"
 LOGOUT_METHODS = ["POST", "GET"] 
