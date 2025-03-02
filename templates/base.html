@@ -49,12 +49,6 @@
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item"><a class="nav-link text-light" href="{% url 'home' %}">Home</a></li>
                     <li class="nav-item"><a class="nav-link text-light contact-link" href="#contact">Contact Us</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'view_bag' %}">
-                            <i class="fas fa-shopping-cart"></i> Cart 
-                            <span class="badge bg-danger">{{ request.session.cart|length }}</span>
-                        </a>
-                    </li>
                 </ul>
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item dropdown">
@@ -67,9 +61,7 @@
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
                                 {% endif %}
-                                <a href="#" class="dropdown-item">My Profile</a>
                                 <form action="{% url 'logout' %}" method="post" class="dropdown-item">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-link p-0">Logout</button>
