@@ -1,0 +1,140 @@
+/* profile.css */
+
+/* General Profile Page Styles */
+.container {
+    max-width: 960px;
+}
+
+.header-container {
+    background-color: #1b1b1b;
+    padding: 50px 0;
+}
+
+.logo-font {
+    font-family: 'Lora', serif;
+    font-size: 36px;
+    color: #fff;
+}
+
+.section-title h2 {
+    font-size: 32px;
+    font-weight: 600;
+    color: #1b1b1b;
+}
+
+.custom-hr {
+    border: 1px solid #f1f1f1;
+    width: 100px;
+    margin-top: 15px;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+/* Order History Table */
+.table th, .table td {
+    border-top: none;
+    border-bottom: none;
+    vertical-align: middle;
+}
+
+.thead-dark th {
+    background-color: #333;
+    color: #fff;
+}
+
+.order-history a {
+    text-decoration: none;
+    color: #333;
+}
+
+.order-history a:hover {
+    color: #0056b3;
+}
+
+/* Buttons */
+.btn-dark {
+    background-color: #000;
+    color: #fff;
+    border: none;
+}
+
+.btn-dark:hover {
+    background-color: #333;
+}
+
+.float-right {
+    float: right;
+}
+
+.mt-3 {
+    margin-top: 1rem;
+}
+
+/* Form styles */
+form {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+  /* Allauth form formatting */
+  
+  .allauth-form-inner-content p {
+      margin-top: 1.5rem; /* mt-4 */
+      color: #6c757d; /* text-secondary */
+  }
+  
+  .allauth-form-inner-content input {
+      border-color: #000;
+      border-radius: 0;
+  }
+  
+  .allauth-form-inner-content label:not([for='id_remember']) {
+      display: none;
+  }
+  
+  .allauth-form-inner-content input::placeholder {
+      color: #aab7c4;
+  }
+  
+  .allauth-form-inner-content button,
+  .allauth-form-inner-content input[type='submit'] {
+      /* btn */
+      display: inline-block;
+      font-weight: 400;
+      color: #fff;
+      text-align: center;
+      vertical-align: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: #000;
+      border: 1px solid #000;
+      padding: .375rem .75rem;
+      font-size: 1rem;
+      line-height: 1.5;
+      border-radius: 0;
+  
+      transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+  
+  .allauth-form-inner-content button:hover,
+  .allauth-form-inner-content input[type='submit']:hover {	
+      color: #fff;
+      background-color: #222;
+      border-color: #222;
+  }
+  
+  .allauth-form-inner-content a {
+      color: #17a2b8; /* text-info */
+  }

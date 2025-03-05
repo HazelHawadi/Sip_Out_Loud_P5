@@ -40,6 +40,16 @@
     margin-top: 20px;
 }
 
+select, 
+select option {
+    color: #000000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
+}
+
 /* Button styling for submit and adjust bag */
 #submit-button {
     background-color: #3498db;  /* Primary blue color */
