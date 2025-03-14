@@ -53,16 +53,11 @@
                 </ul>
                 <ul class="navbar-nav ms-auto align-items-center">
                     <li class="nav-item dropdown">
-                        <a class="text-light nav-link" href="#" id="user-options" data-bs-toggle="dropdown">
-                            <div class="text-center">
-                                <i class="fas fa-user fa-lg"></i>
-                                <p class="my-0">My Account</p>
-                            </div>
+                        <a class="nav-link text-light d-flex align-items-center" href="#" id="user-options" data-bs-toggle="dropdown">
+                            <i class="fas fa-user fa-lg me-1"></i> My Account
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
-                                {% if request.user.is_superuser %}
-                                {% endif %}
                                 <form action="{% url 'logout' %}" method="post" class="dropdown-item">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-link p-0">Logout</button>
