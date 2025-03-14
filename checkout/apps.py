@@ -1,8 +1,8 @@
 from django.apps import AppConfig
 
-
 class CheckoutConfig(AppConfig):
-    name = 'checkout'
+    default_auto_field = "django.db.models.BigAutoField"  # Prevents migration issues
+    name = "checkout"
 
     def ready(self):
-        import checkout.signals
+        import checkout.signals  # Ensures signals are loaded
