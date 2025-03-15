@@ -65,6 +65,10 @@ select option[value=""] {
     cursor: not-allowed;
 }
 
+.row p {
+    color: #af965e;
+}
+
 /* Loading overlay styling */
 #loading-overlay {
     position: fixed;

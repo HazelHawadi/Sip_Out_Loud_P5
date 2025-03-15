@@ -32,6 +32,7 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('checkout/', include('checkout.urls')),
+    path('profile/', include('profiles.urls')),
 ]
 
 if settings.DEBUG:

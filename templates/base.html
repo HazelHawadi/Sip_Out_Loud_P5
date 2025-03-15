@@ -30,61 +30,63 @@
 
     <!-- Header -->
     <header class="container-fluid fixed-top bg-black p-3">
-    <div class="d-flex justify-content-between align-items-center">
-        <a href="{% url 'home' %}" class="main-logo-link d-flex align-items-center text-decoration-none">
-            <img src="{% get_media_prefix %}logo-solid.png" alt="Sip Out Loud Logo" class="logo-img">
-            <h2 class="text-light m-0 ml-2">Sip Out Loud</h2>
-        </a>
-
-        <form class="d-flex" method="GET" action="{% url 'products' %}">
-            <input class="form-control rounded-pill" type="search" name="q" placeholder="Search...">
-            <button class="btn btn-gold rounded-pill ms-2" type="submit">Search</button>
-        </form>
-        
-        
-        <nav class="navbar navbar-expand-lg">
-            <button class="navbar-toggler text-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
-                    <li class="nav-item"><a class="nav-link text-light" href="{% url 'home' %}">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-light contact-link" href="#contact">Contact Us</a></li>
-                </ul>
-                <ul class="navbar-nav ms-auto align-items-center">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link text-light d-flex align-items-center" href="#" id="user-options" data-bs-toggle="dropdown">
-                            <i class="fas fa-user fa-lg me-1"></i> My Account
+        <div class="d-flex justify-content-between align-items-center">
+            <a href="{% url 'home' %}" class="main-logo-link d-flex align-items-center text-decoration-none">
+                <img src="{% get_media_prefix %}logo-solid.png" alt="Sip Out Loud Logo" class="logo-img">
+                <h2 class="text-light m-0 ml-2">Sip Out Loud</h2>
+            </a>
+    
+            <form class="d-flex" method="GET" action="{% url 'products' %}">
+                <input class="form-control rounded-pill" type="search" name="q" placeholder="Search...">
+                <button class="btn btn-gold rounded-pill ms-2" type="submit">Search</button>
+            </form>
+    
+            <!-- User & Cart Dropdown -->
+            <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+                <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                    <!-- User Account -->
+                    <li class="list-inline-item dropdown">
+                        <a class="text-white nav-link" href="#" id="user-options" data-bs-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            <div class="text-center">
+                                <div><i class="fas fa-user fa-lg"></i></div>
+                                <p class="my-0">My Account</p>
+                            </div>
                         </a>
                         <div class="dropdown-menu border-0" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
-                                <form action="{% url 'logout' %}" method="post" class="dropdown-item">
-                                    {% csrf_token %}
-                                    <button type="submit" class="btn btn-link p-0">Logout</button>
-                                </form>
+                                <a href="{% url 'profile' %}" class="dropdown-item">My Profile</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
                             {% else %}
-                                <a href="{% url 'register' %}" class="dropdown-item">Register</a>
-                                <a href="{% url 'login' %}" class="dropdown-item">Login</a>
+                                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item">Login</a>
                             {% endif %}
                         </div>
                     </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-light" href="{% url 'view_bag' %}">Total: 
-                            {% if grand_total %}
-                                €{{ grand_total|floatformat:2 }}
-                            {% else %}
-                                €0.00
-                            {% endif %}
+    
+                    <!-- Shopping Bag -->
+                    <li class="list-inline-item">
+                        <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-white{% endif %} nav-link" href="{% url 'view_bag' %}">
+                            <div class="text-center">
+                                <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                <p class="my-0">
+                                    {% if grand_total %}
+                                        €{{ grand_total|floatformat:2 }}
+                                    {% else %}
+                                        €0.00
+                                    {% endif %}
+                                </p>
+                            </div>
                         </a>
                     </li>
                 </ul>
             </div>
-        </nav>
-    </div>
-    <div class="shipping text-center bg-white py-2">
-        Free shipping on orders over €{{ free_delivery_threshold }}!
-    </div>
-</header>
+        </div>
+    
+        <div class="shipping text-center bg-white py-2">
+            Free shipping on orders over €{{ free_delivery_threshold }}!
+        </div>
+    </header>
 
 <div aria-live="polite" aria-atomic="true" class="position-relative">
     <div class="toast-container position-fixed bottom-0 end-0 p-3">

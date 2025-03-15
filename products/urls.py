@@ -15,4 +15,5 @@ urlpatterns = [
     path('<str:category>/', views.product_list, name='product_list_with_category'),  # Show category-specific products
     path('products/search/', views.search, name='search'),
     path('manage/', views.product_management, name='product_management'),
+    path('add/', views.add_product, name='add_product'),
 ]

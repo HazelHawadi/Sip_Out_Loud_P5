@@ -277,6 +277,10 @@ h1, h2, h3 {
     color: #bdbdbd;
 }
 
+.container {
+    color: #fff;
+}
+
 /* Features Section */
 .features {
     color: #af965e;
