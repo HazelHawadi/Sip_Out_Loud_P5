@@ -133,8 +133,8 @@ def checkout(request):
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
         }
-
-        return render(request, 'checkout/checkout_success.html')
+        
+        return render(request, template, context)
     
 
 def checkout_success(request, order_number):
@@ -180,7 +180,6 @@ def checkout_success(request, order_number):
     return render(request, 'checkout/checkout_success.html')
 
 def clear_bag_session(request):
-    """ Clears the shopping bag session """
     try:
         del request.session['bag']
         messages.success(request, 'Your shopping bag has been cleared.')
